@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id": 4,
+      "cate": 1,
+      "kode": "b45",
+      "name": "Nasi Ayam",
+      "price": 10000,
+      "stok": 82,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Nasi_kucing_langgi.jpg"
+    },
+    {
+      "id": 5,
+      "cate": 1,
+      "kode": "b45",
+      "name": "Nasi Ayam",
+      "price": 10000,
+      "stok": 82,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Nasi_kucing_langgi.jpg"
+    },
+    {
+      "id": 9,
+      "cate": 1,
+      "kode": "b45",
+      "name": "Nasi belut",
+      "price": 10000,
+      "stok": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Nasi_kucing_langgi.jpg"
+    },
+    {
+      "id": 10,
+      "cate": 1,
+      "kode": "b43",
+      "name": "Nasi Rica",
+      "price": 10000,
+      "stok": 100,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Nasi_kucing_langgi.jpg"
+    }
+  ]
+}
