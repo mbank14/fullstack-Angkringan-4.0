@@ -45,7 +45,7 @@
     <v-container class="d-none d-sm-flex d-md-none d-lg-flex">
       <v-app-bar elevation app flat color="white">
         <v-toolbar-title>
-          <p>Angkringan 4.0</p>
+          <!-- <p>Pajak 4.0</p> -->
         </v-toolbar-title>
         <v-tabs centered color="orange darken-4">
           <v-tab
@@ -57,27 +57,7 @@
             {{ link.text }}
           </v-tab>
         </v-tabs>
-        <div>
-          <v-btn icon class="append button-cart" color="grey" to="/cart">
-            <v-icon right>mdi-shopping</v-icon>
-            <!-- <v-badge color="#ED5575" :content="jumlah"></v-badge> -->
-          </v-btn>
-        </div>
       </v-app-bar>
-    </v-container>
-
-    <v-container class="d-none d-sm-flex d-md-none d-lg-flex">
-      <div class="d-flex justify-space-between">
-        <!-- Search -->
-        <v-text-field
-          prepend-inner-icon="mdi-magnify"
-          v-model="message"
-          label="Nasi Kucing"
-          outlined
-          dense
-          @keyup="findProduct()"
-        ></v-text-field>
-      </div>
     </v-container>
   </div>
 </template>
@@ -90,11 +70,11 @@ export default {
     return {
       grow: true,
       drawer: false,
-      links: [
-        { icon: "mdi-home", text: "Semua Menu", route: "/" },
-        { icon: "mdi-food", text: "Makanan", route: "/makanan" },
-        { icon: "mdi-coffee", text: "Minuman", route: "/minuman" }
-      ]
+      // links: [
+      //   { icon: "mdi-home", text: "Semua Menu", route: "/" },
+      //   { icon: "mdi-food", text: "Makanan", route: "/makanan" },
+      //   { icon: "mdi-coffee", text: "Minuman", route: "/minuman" }
+      // ]
     };
   },
   computed: {
@@ -108,8 +88,8 @@ export default {
       },
       set(value) {
         this.$store.commit("updateMessage", value);
-      }
-    }
+      },
+    },
   },
   methods: {
     // async findList() {
@@ -119,7 +99,7 @@ export default {
     //   this.produk = response.data;
     //   console.log(this.produk);
     // }
-  }
+  },
 };
 </script>
 
