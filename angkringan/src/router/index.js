@@ -39,6 +39,19 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "snack" */ "../views/Transaksi.vue"),
   },
+  {
+    path: "/toko",
+    name: "Toko",
+    component: () =>
+      import(/* webpackChunkName: "toko" */ "../views/Toko.vue"),
+  },
+  //ini admin
+  {
+    path:"/login",
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/dasbor/Login.vue")
+  }
 ];
 
 const router = new VueRouter({
