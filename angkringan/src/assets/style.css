@@ -1,33 +1,39 @@
 .v-breadcrumbs__item {
-  /* color: #e65100 !important; */
-  color: gray !important;
+    /* color: #e65100 !important; */
+    color: gray !important;
 }
+
 .v-breadcrumbs__item--disabled {
-  color: #e65100 !important;
+    color: #e65100 !important;
 }
 
 .v-badge__wrapper {
-  bottom: calc(100% - 4px);
-  left: calc(100% - 4px);
-  right: 2px;
-  top: 2px;
-  background-color: rgb(237, 85, 117);
-  border-color: rgb(237, 85, 117);
+    bottom: calc(100% - 4px);
+    left: calc(100% - 4px);
+    right: 2px;
+    top: 2px;
+    background-color: rgb(237, 85, 117);
+    border-color: rgb(237, 85, 117);
 }
 
 .text-item {
-  font-size: 1.1rem;
-  font-weight: 1000;
-  letter-spacing: -0.015625em;
-  color: #132645;
+    font-size: 1.1rem;
+    font-weight: 1000;
+    letter-spacing: -0.015625em;
+    color: #132645;
 }
+
 .text-price {
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: -0.015625em;
-  color: #132645;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.015625em;
+    color: #132645;
 }
 
 .card-hover {
-  cursor: pointer;
+    cursor: pointer;
+}
+
+.v-application a {
+    text-decoration: none;
 }

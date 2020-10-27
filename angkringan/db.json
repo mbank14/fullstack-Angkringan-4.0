@@ -1,0 +1,99 @@
+{
+    "toko": [{
+            "id": 1,
+            "nameToko": "Toko Jaya Abadi",
+            "src": "https://images.unsplash.com/photo-1551018612-9715965c6742?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=754&q=80",
+            "menu": [{
+                    "menuId": 1,
+                    "namaMenu": "Baju Batik",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                },
+                {
+                    "menuId": 2,
+                    "namaMenu": "Kaos Polos",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                },
+                {
+                    "menuId": 3,
+                    "namaMenu": "Blankon",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "nameToko": "Toko Abadi",
+            "src": "https://www.portonews.com/wp-content/uploads/2019/12/basuka2.jpg",
+            "menu": [{
+                    "menuId": 1,
+                    "namaMenu": "Baju Batik",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                },
+                {
+                    "menuId": 2,
+                    "namaMenu": "Kaos Polos",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                },
+                {
+                    "menuId": 3,
+                    "namaMenu": "Blankon",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "nameToko": "Toko Makmur",
+            "src": "https://kabarhandayani.com/wp-content/uploads/2016/02/Pasar-semin.jpg",
+            "menu": [{
+                    "menuId": 1,
+                    "namaMenu": "Baju Batik",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                },
+                {
+                    "menuId": 2,
+                    "namaMenu": "Kaos Polos",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                },
+                {
+                    "menuId": 3,
+                    "namaMenu": "Blankon",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "nameToko": "Toko Sentosa",
+            "src": "https://www.yogyes.com/en/yogyakarta-tourism-object/shopping/gabusan/1.jpg",
+            "menu": [{
+                    "menuId": 1,
+                    "namaMenu": "Baju Batik",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                },
+                {
+                    "menuId": 2,
+                    "namaMenu": "Kaos Polos",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                },
+                {
+                    "menuId": 3,
+                    "namaMenu": "Blankon",
+                    "price": 25000,
+                    "src": "https://images.unsplash.com/photo-1577107348576-62052396ef6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=587&q=80"
+                }
+            ]
+        }
+    ]
+}
