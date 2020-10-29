@@ -17,9 +17,24 @@ export default {
           to: "/"
         },
         {
-          text: "Cart",
+          text: "Details",
           disabled: true,
-          to: "/cart"
+          to: "/details"
+        },
+        {
+          text: "Login",
+          disabled: true,
+          to: "/login"
+        },
+        {
+          text: "Registrasi",
+          disabled: true,
+          to: "/daftar"
+        },
+        {
+          text: "Pedagang",
+          disabled: true,
+          to: "/pedagang"
         }
       ]
     };
@@ -27,5 +42,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
