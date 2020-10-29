@@ -48,20 +48,20 @@
       <v-responsive height="1500"></v-responsive>
     </v-sheet>
   </v-card>
-    <Footer />
+    <!-- <Footer /> -->
   </v-app>
 </template>
 
 <script>
 // import Appbar from "./components/Appbar";
-import Footer from "./views/Footer";
+// import Footer from "./views/Footer";
 
 export default {
   name: "App",
 
   components: {
     // Appbar,
-    Footer
+    // Footer
   },
 
   data: () => ({

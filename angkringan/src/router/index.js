@@ -51,6 +51,24 @@ const routes = [
     name: "Login",
     component: () =>
       import(/* webpackChunkName: "login" */ "../views/dasbor/Login.vue")
+  },
+  {
+    path:"/dasbor",
+    name: "Dasbor",
+    component: () =>
+      import(/* webpackChunkName: "dasbor" */ "../views/dasbor/Dasbor.vue")
+  },
+  {
+    path: "/tambahmenu",
+    name: "AddProduk",
+    component: () =>
+    import(/* webpackChunkName: "tambahmenu" */ "../components/AddProduct.vue")
+  },
+  {
+    path: "/registrasi",
+    name: "Registrasi",
+    component: () => 
+      import(/* webpackChunkName: "registrasi" */ "../views/dasbor/Registrasi.vue")
   }
 ];
 
