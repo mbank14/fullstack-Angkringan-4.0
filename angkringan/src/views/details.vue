@@ -3,24 +3,15 @@
     <breadcrumbs />
     <v-container>
       <!-- Cart Button -->
-      <v-btn color="grey" large top right icon fab fixed>
+      <v-btn color="grey" large bottom right icon fab fixed to="/cart">
         <v-icon x-large>mdi-shopping-outline</v-icon>
         <v-badge color="#6D4C41"></v-badge>
       </v-btn>
-
       <!-- Search Bar-->
-      <v-container>
-        <v-text-field
-          type="text"
-          prepend-inner-icon="mdi-magnify"
-          placeholder="Cari barang apapun yang kamu inginkan"
-          dense
-          outlined
-        ></v-text-field>
-      </v-container>
+      <Search class="d-flex justify-end mb-2" />
 
       <!-- Store Name -->
-      <v-card class="mx-left" max-width="544" flat cols="12" md="3" sm="6">
+      <v-card class="mx-left " max-width="450" flat cols="12" sm="6">
         <v-list-item three-line>
           <v-list-item-avatar tile size="140" color="grey">
             <v-img
@@ -92,6 +83,7 @@
 <script>
 import axios from "axios";
 import breadcrumbs from "../components/Breadcrumbs.vue";
+import Search from "@/components/Search";
 
 export default {
   data() {
@@ -100,7 +92,8 @@ export default {
     };
   },
   components: {
-    breadcrumbs
+    breadcrumbs,
+    Search
   },
   computed: {},
   methods: {

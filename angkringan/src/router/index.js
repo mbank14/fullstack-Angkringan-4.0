@@ -11,7 +11,7 @@ const routes = [{
     },
     {
         path: "/makanan",
-        name: " Makanan",
+        name: "Makanan",
         component: () =>
             import ( /* webpackChunkName: "makanan" */ "../views/Makanan.vue"),
     },
@@ -45,6 +45,24 @@ const routes = [{
         name: "Detail",
         component: () =>
             import ( /* webpackChunkName: "snack" */ "../views/details.vue"),
+    },
+    {
+        path: "/login",
+        name: "Login",
+        component: () =>
+            import ( /* webpackChunkName: "snack" */ "../views/Login.vue"),
+    },
+    {
+        path: "/daftar",
+        name: "Registrasi",
+        component: () =>
+            import ("../views/RegistrasiView.vue"),
+    },
+    {
+        path: "/pedagang",
+        name: "Pedagang",
+        component: () =>
+            import ("../views/Pedagangview.vue"),
     },
 ];
 

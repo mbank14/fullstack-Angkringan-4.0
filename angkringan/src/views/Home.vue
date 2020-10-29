@@ -3,7 +3,24 @@
     <v-container class="fluid">
       <h1>Peken 4.0</h1>
     </v-container>
-    <v-container class="my-5">
+
+    <v-container>
+      <v-card flat>
+        <v-card-actions>
+          <v-btn
+            flat
+            outlined
+            class="text-capitalize"
+            color="white--black white"
+            to="/login"
+            >Login/Daftar</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-container>
+
+    <v-container>
+      <!-- <Search class="d-flex justify-end" /> -->
       <v-row>
         <v-col
           v-for="items in allProducts"
@@ -42,20 +59,33 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+// import Search from "@/components/Search";
 export default {
   name: "Home",
   data() {
-    return {};
+    return {
+      item: []
+    };
   },
-  components: {},
+  components: {
+    // Search
+  },
   computed: {
     ...mapGetters(["allProducts"])
   },
   methods: {
-    ...mapActions(["getProduct"])
+    ...mapActions(["getProduct"]),
+    setData(data) {
+      this.item = data;
+    }
   },
-  mounted() {
+  async mounted() {
     this.getProduct();
+    if (!localStorage.getItem("Bearer")) {
+      this.$router.push({ name: "Pedagang" });
+    } else {
+      scrollTo(0, 0);
+    }
   }
 };
 </script>
