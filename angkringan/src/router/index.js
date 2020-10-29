@@ -64,6 +64,31 @@ const routes = [{
         component: () =>
             import ("../views/Pedagangview.vue"),
     },
+  {
+    path: "/toko",
+    name: "Toko",
+    component: () =>
+      import(/* webpackChunkName: "toko" */ "../views/Toko.vue"),
+  },
+  //ini admin
+  {
+    path:"/login",
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/dasbor/Login.vue")
+  },
+  {
+    path:"/dasbor",
+    name: "Dasbor",
+    component: () =>
+      import(/* webpackChunkName: "dasbor" */ "../views/dasbor/Dasbor.vue")
+  },
+  {
+    path: "/tambahmenu",
+    name: "AddProduk",
+    component: () =>
+    import(/* webpackChunkName: "tambahmenu" */ "../components/AddProduct.vue")
+  }
 ];
 
 const router = new VueRouter({

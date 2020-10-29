@@ -8,20 +8,20 @@
         </transition>
       </v-container>
     </v-main>
-    <Footer />
+    <!-- <Footer /> -->
   </v-app>
 </template>
 
 <script>
 // import Appbar from "./components/Appbar";
-import Footer from "./views/Footer";
+// import Footer from "./views/Footer";
 
 export default {
   name: "App",
 
   components: {
     // Appbar,
-    Footer
+    // Footer
   },
 
   data: () => ({
