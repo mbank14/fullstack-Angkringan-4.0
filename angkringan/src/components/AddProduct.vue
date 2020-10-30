@@ -18,6 +18,14 @@
             label="Nama Item"
             outlined
           ></v-text-field>
+
+      </div>
+      <div>
+        <v-btn>
+          <router-link to="/dasbor">
+            save
+          </router-link>
+        </v-btn>
       </div>
   </div>
 </template>
