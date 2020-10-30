@@ -88,6 +88,18 @@ const routes = [{
     name: "AddProduk",
     component: () =>
     import(/* webpackChunkName: "tambahmenu" */ "../components/AddProduct.vue")
+  },
+  {
+    path: "/registrasi",
+    name: "Registrasi",
+    component: () => 
+      import(/* webpackChunkName: "registrasi" */ "../views/dasbor/Registrasi.vue")
+  },
+  {
+    path: "/produk",
+    name: "Produk",
+    component: () => 
+      import(/* webpackChunkName: "produk" */ "../views/dasbor/Produk.vue")
   }
 ];
 
