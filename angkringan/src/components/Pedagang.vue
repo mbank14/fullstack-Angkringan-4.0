@@ -36,7 +36,9 @@
           <v-card-actions>
             <v-btn color="white--text green darken-1">Daftar</v-btn>
           </v-card-actions>
-          <v-btn @click="logout()">Logout</v-btn>
+          <v-card-actions>
+            <v-btn color="primary" @click="logout()">Logout</v-btn>
+          </v-card-actions>
         </v-card>
       </v-form>
     </v-container>

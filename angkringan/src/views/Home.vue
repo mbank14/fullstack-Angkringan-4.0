@@ -8,6 +8,7 @@
       <v-card flat>
         <v-card-actions>
           <v-btn
+            text
             flat
             outlined
             class="text-capitalize"
@@ -81,7 +82,7 @@ export default {
   },
   async mounted() {
     this.getProduct();
-    if (!localStorage.getItem("Bearer")) {
+    if (localStorage.getItem("Bearer")) {
       this.$router.push({ name: "Pedagang" });
     } else {
       scrollTo(0, 0);

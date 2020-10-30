@@ -47,7 +47,7 @@
         <v-toolbar-title>
           <!-- <p>Pajak 4.0</p> -->
         </v-toolbar-title>
-        <v-tabs centered color="orange darken-4">
+        <!-- <v-tabs centered color="orange darken-4">
           <v-tab
             class="text-capitalize"
             v-for="link in links"
@@ -56,7 +56,7 @@
           >
             {{ link.text }}
           </v-tab>
-        </v-tabs>
+        </v-tabs> -->
       </v-app-bar>
     </v-container>
   </div>
@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       grow: true,
-      drawer: false,
+      drawer: false
       // links: [
       //   { icon: "mdi-home", text: "Semua Menu", route: "/" },
       //   { icon: "mdi-food", text: "Makanan", route: "/makanan" },
@@ -88,8 +88,8 @@ export default {
       },
       set(value) {
         this.$store.commit("updateMessage", value);
-      },
-    },
+      }
+    }
   },
   methods: {
     // async findList() {
@@ -99,7 +99,7 @@ export default {
     //   this.produk = response.data;
     //   console.log(this.produk);
     // }
-  },
+  }
 };
 </script>
 
