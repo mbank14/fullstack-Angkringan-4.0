@@ -69,6 +69,12 @@ const routes = [
     name: "Registrasi",
     component: () => 
       import(/* webpackChunkName: "registrasi" */ "../views/dasbor/Registrasi.vue")
+  },
+  {
+    path: "/produk",
+    name: "Produk",
+    component: () => 
+      import(/* webpackChunkName: "produk" */ "../views/dasbor/Produk.vue")
   }
 ];
 
