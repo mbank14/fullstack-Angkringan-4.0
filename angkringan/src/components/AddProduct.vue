@@ -15,10 +15,14 @@
             outlined
           ></v-text-field>
           <v-text-field
-            label="Nama Item"
+            label="Keterangan"
             outlined
           ></v-text-field>
-
+          <v-file-input
+      small-chips
+      multiple
+      label="Upload foto"
+    ></v-file-input>
       </div>
       <div>
         <v-btn>

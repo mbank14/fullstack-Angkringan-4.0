@@ -33,6 +33,7 @@
                 <div>
                   <v-icon large color="green">mdi-cloud-upload </v-icon>
                 </div>
+                <v-spacer></v-spacer>
                 <v-card-actions >
                   <v-btn class="ml-2 mt-5" outlined small>
                     edit
