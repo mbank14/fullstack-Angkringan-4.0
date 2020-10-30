@@ -81,7 +81,7 @@ export default {
   },
   async mounted() {
     this.getProduct();
-    if (!localStorage.getItem("Bearer")) {
+    if ( localStorage.getItem("Bearer")) {
       this.$router.push({ name: "Pedagang" });
     } else {
       scrollTo(0, 0);
