@@ -1,5 +1,15 @@
 <template>
   <div>
+    <v-toolbar flat app color="blue">
+      <v-btn flat color="pink">
+        <v-icon>mdi-right</v-icon>
+        <span>back</span>
+      </v-btn>
+      
+      <v-toolbar-title>
+        Tambah Item
+      </v-toolbar-title>
+    </v-toolbar>
       <h1>ini form tambah</h1>
       <div>
           <v-text-field
