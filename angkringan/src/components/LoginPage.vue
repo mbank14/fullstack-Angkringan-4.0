@@ -9,8 +9,8 @@
             terdaftar</v-card-text
           >
           <!-- username -->
-          <v-card-subtitle class="pb-1">Username</v-card-subtitle>
           <v-container class="fluid">
+            <v-card-subtitle class="px-1 py-1">Username</v-card-subtitle>
             <v-text-field
               flat
               type="text"
@@ -22,8 +22,8 @@
             </v-text-field>
           </v-container>
           <!-- password -->
-          <v-card-subtitle class="pb-1">Password</v-card-subtitle>
           <v-container class="fluid">
+            <v-card-subtitle class="px-1 py-1 ">Password</v-card-subtitle>
             <v-text-field
               flat
               type="password"
@@ -37,6 +37,7 @@
           <v-card-actions>
             <v-btn
               color="white--text green darken-1"
+              :loading="loading"
               @click="loginItem()"
               @keypress.enter="loginItem()"
               >Login</v-btn
@@ -54,10 +55,12 @@
 </template>
 
 <script>
+// import api from "../../services/dataServices";
 import axios from "axios";
 export default {
   data: () => {
     return {
+      loading: false,
       login: {
         username: "",
         password: ""
@@ -66,12 +69,13 @@ export default {
   },
   methods: {
     async loginItem() {
-      console.log(this.login);
+      this.loading = true;
       try {
         const response = await axios.post(
-          "http://192.168.1.22:8000/account/",
+          "http://192.168.1.25:8000/account/",
           this.login
         );
+        this.loading = false;
         this.$toast.success("Login Berhasil", {
           type: "success",
           position: "top-right",
@@ -80,9 +84,10 @@ export default {
         });
         console.log(response.data);
         localStorage.setItem("Bearer", response.data.token);
-        this.$router.push({ name: "Pedagang" });
+        this.$router.push({ name: "Dasbor" });
       } catch (error) {
-        this.$toast.error("Username / Password salah", {
+        this.loading = false;
+        this.$toast.error("Username / Password Salah", {
           type: "error",
           position: "top-right",
           duration: 3000,
@@ -94,5 +99,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
