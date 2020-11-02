@@ -7,7 +7,7 @@
         </router-link>
       </v-btn>
     </v-container>
-    <v-container>
+    <!-- <v-container fluid> -->
       <v-row dense>
         <v-col v-for="(item, i) in items" :key="i" cols="12">
           <v-card :color="item.color" dark>
@@ -44,7 +44,7 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-container>
+    <!-- </v-container> -->
     <BottomNav />
   </div>
 </template>
