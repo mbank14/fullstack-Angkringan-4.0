@@ -4,7 +4,8 @@
       <v-row>
           <v-col>
               <v-card>
-                
+                <div>logo</div>
+                <div>nama</div>
               </v-card>
           </v-col>
       </v-row>
