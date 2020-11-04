@@ -4,27 +4,35 @@
       <v-toolbar-title>Produk</v-toolbar-title>
     </v-toolbar>
     <div>
-        <produk></produk>
-        <router-view></router-view>
+      <produk></produk>
+      <router-view></router-view>
     </div>
-   <BottomNav />
+    <BottomNav />
+    <v-btn @click="logout()">Logout</v-btn>
   </div>
 </template>
 
 <script>
-import Produk from './Produk'
-import BottomNav from '@/components/BottomNav'
+import Produk from "./Produk";
+import BottomNav from "@/components/BottomNav";
 export default {
-    data() {
-        return {
-            fixed: true,
-            value: 'recent'
-        }
-    },
-    components:{
-      BottomNav,
-      Produk
+  data() {
+    return {
+      fixed: true,
+      value: "recent"
+    };
+  },
+  components: {
+    BottomNav,
+    Produk
+  },
+  methods: {
+    logout() {
+      console.log("klik");
+      localStorage.removeItem("Bearer");
+      this.$router.push({ name: "Home" });
     }
+  }
 };
 </script>
 

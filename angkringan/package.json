@@ -1,5 +1,5 @@
 {
-  "name": "pekan",
+  "name": "peken4.0",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,9 +10,9 @@
   "dependencies": {
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "dotenv": "^8.2.0",
     "json-server": "^0.16.2",
     "vue": "^2.6.11",
-    "vue-html2pdf": "^1.7.3",
     "vue-router": "^3.2.0",
     "vue-toast-notification": "^0.5.4",
     "vuetify": "^2.2.11",

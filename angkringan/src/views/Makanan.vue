@@ -1,6 +1,5 @@
  <template>
   <div>
-    <Navigation />
     <v-container>
       <v-row>
         <v-col
@@ -41,14 +40,11 @@
 </template>
 
 <script>
-import Navigation from "@/components/Navigation";
 import { mapActions, mapGetters } from "vuex";
 // import { mapActions } from "vuex";
 export default {
   name: "Makanan",
-  components: {
-    Navigation
-  },
+  components: {},
   data() {
     return {
       show: true
