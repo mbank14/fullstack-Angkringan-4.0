@@ -31,6 +31,7 @@
               dense
               outlined
               v-model="login.password"
+              @keypress.enter="loginItem()"
             >
             </v-text-field>
           </v-container>
@@ -39,7 +40,6 @@
               color="white--text green darken-1"
               :loading="loading"
               @click="loginItem()"
-              @keypress.enter="loginItem()"
               >Login</v-btn
             >
             <v-btn color="white--black white" outlined to="/">Batal</v-btn>
@@ -61,26 +61,24 @@ export default {
   data: () => {
     return {
       loading: false,
+      api: "http://192.168.137.16:8000/",
       login: {
         username: "",
-        password: ""
-      }
+        password: "",
+      },
     };
   },
   methods: {
     async loginItem() {
       this.loading = true;
       try {
-        const response = await axios.post(
-          "http://192.168.1.25:8000/account/",
-          this.login
-        );
+        const response = await axios.post(`${this.api}account/`, this.login);
         this.loading = false;
         this.$toast.success("Login Berhasil", {
           type: "success",
           position: "top-right",
           duration: 3000,
-          dismissable: true
+          dismissable: true,
         });
         console.log(response.data);
         localStorage.setItem("Bearer", response.data.token);
@@ -91,11 +89,11 @@ export default {
           type: "error",
           position: "top-right",
           duration: 3000,
-          dismissable: true
+          dismissable: true,
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
