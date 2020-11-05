@@ -68,7 +68,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      api: "http://192.168.137.16:8000/",
+      api: "http://192.168.137.227:8000/",
       loading: false,
       dialog: false,
       items: [],

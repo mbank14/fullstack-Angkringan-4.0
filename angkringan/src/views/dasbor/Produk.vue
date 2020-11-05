@@ -2,7 +2,7 @@
   <div>
     <v-container class="fluid">
       <v-row>
-        <v-card class="mx-auto" max-width="780">
+        <v-card class="mx-auto" max-width="900">
           <v-row>
             <v-col>
               <v-card-title>List Barang</v-card-title>
@@ -45,14 +45,14 @@
               <v-btn icon>
                 <v-icon color="green darken-2">mdi-pencil</v-icon>
               </v-btn>
-              <v-btn icon>
+              <v-btn icon @click="delBarang(item.id)">
                 <v-icon color="red darken-2">mdi-trash-can</v-icon>
               </v-btn>
             </v-card-actions>
           </div>
         </v-card>
       </v-row>
-    <!-- </v-container> -->
+    </v-container>
     <BottomNav />
   </div>
 </template>
@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      api: "http://192.168.137.16:8000/",
+      api: "http://192.168.137.227:8000/",
       items: [],
     };
   },
@@ -79,6 +79,12 @@ export default {
       this.items = response.data.data;
       console.log(this.items);
     },
+    async delBarang(id){
+      // const token = localStorage.getItem("Bearer");
+      const response = await axios.delete(`${this.api}products/${id}/delete`);
+      // this.items = response.data.data;
+      console.log(response);
+    }
   },
   mounted() {
     this.getBarang();
