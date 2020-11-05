@@ -1,5 +1,8 @@
 <template>
   <div>
+    <v-toolbar flat app color="pink">
+      <v-toolbar-title>Produk</v-toolbar-title>
+    </v-toolbar>
     <div>
       <produk></produk>
       <router-view></router-view>
