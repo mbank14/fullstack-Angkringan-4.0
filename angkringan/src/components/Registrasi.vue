@@ -142,63 +142,70 @@ export default {
   data() {
     return {
       loading: false,
+      api: "http://192.168.137.16:8000/",
       register: {
         user: {
           username: "",
-          password: ""
+          password: "",
         },
         toko: {
           nama: "",
           alamat: "",
           telp: "",
-          gambar: ""
-        }
+          gambar: "",
+        },
       },
 
       valid: true,
       firstName: "",
       firstnameRules: [
-        v => !!v || "First Name is required",
-        v => (v && v.length >= 5) || "first name must be less than 5 characters"
+        (v) => !!v || "First Name is required",
+        (v) =>
+          (v && v.length >= 5) || "first name must be less than 5 characters",
       ],
       lastName: "",
       lastnameRules: [
-        v => !!v || "Last Name is required",
-        v => (v && v.length >= 5) || "last name must be less than 5 characters"
+        (v) => !!v || "Last Name is required",
+        (v) =>
+          (v && v.length >= 5) || "last name must be less than 5 characters",
       ],
       userName: "",
       userNameRules: [
-        v => !!v || "Username is required",
-        v => (v && v.length >= 5) || "username must be less than 5 characters"
+        (v) => !!v || "Username is required",
+        (v) =>
+          (v && v.length >= 5) || "username must be less than 5 characters",
       ],
       password: "",
       passwordRules: [
-        v => !!v || "password is required",
-        v => (v && v.length >= 5) || "password must be less than 10 characters"
+        (v) => !!v || "password is required",
+        (v) =>
+          (v && v.length >= 5) || "password must be less than 10 characters",
       ],
       nama: "",
       namaTokoRules: [
-        v => !!v || "Nama Toko is required",
-        v => (v && v.length >= 5) || "nama toko must be less than 5 characters"
+        (v) => !!v || "Nama Toko is required",
+        (v) =>
+          (v && v.length >= 5) || "nama toko must be less than 5 characters",
       ],
       alamat: "",
       alamatTokoRules: [
-        v => !!v || "Alamat Toko is required",
-        v =>
-          (v && v.length >= 5) || "alamat toko must be less than 5 characters"
+        (v) => !!v || "Alamat Toko is required",
+        (v) =>
+          (v && v.length >= 5) || "alamat toko must be less than 5 characters",
       ],
       telp: "",
       telpRules: [
-        v => !!v || "No. Telp is required",
-        v =>
-          (v && v.length >= 5) || "no. telp toko must be less than 5 characters"
+        (v) => !!v || "No. Telp is required",
+        (v) =>
+          (v && v.length >= 5) ||
+          "no. telp toko must be less than 5 characters",
       ],
       gambar: "",
       gambarRules: [
-        v => !!v || "gambar is required",
-        v =>
-          (v && v.length >= 5) || "gambar toko must be less than 5 characters"
-      ]
+        (v) => !!v || "gambar is required",
+        (v) =>
+          (v && v.length >= 5) || "gambar toko must be less than 5 characters",
+      ],
     };
   },
   methods: {
@@ -207,7 +214,7 @@ export default {
       try {
         if (this.$refs.form.validate()) {
           const response = await axios.post(
-            "http://192.168.1.25:8000/account/register/",
+            `${this.api}account/register/`,
             this.register
           );
           this.loading = false;
@@ -215,18 +222,18 @@ export default {
             type: "success",
             position: "top-right",
             duration: 3000,
-            dismissable: true
+            dismissable: true,
           });
           console.log(response.data);
           this.$router.push({ name: "Login" });
         } else {
-          this.loading = false;
           this.$toast.error("Registrasi Gagal", {
             type: "error",
             position: "top-right",
             duration: 3000,
-            dismissable: true
+            dismissable: true,
           });
+          this.loading = false;
         }
       } catch (error) {
         console.log(error);
@@ -235,14 +242,14 @@ export default {
           type: "error",
           position: "top-right",
           duration: 3000,
-          dismissable: true
+          dismissable: true,
         });
       }
     },
     reset() {
       this.$refs.form.reset();
-    }
-  }
+    },
+  },
 };
 </script>
 

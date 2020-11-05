@@ -6,9 +6,12 @@
     <div>
       <produk></produk>
       <router-view></router-view>
+      <span class="logout grey--text my-4" @click="logout()">
+        Logout
+      </span>
+      <!-- <v-btn class="text-capitalize" outlined @click="logout()">Logout</v-btn> -->
     </div>
     <BottomNav />
-    <v-btn @click="logout()">Logout</v-btn>
   </div>
 </template>
 
@@ -19,21 +22,25 @@ export default {
   data() {
     return {
       fixed: true,
-      value: "recent"
+      value: "recent",
     };
   },
   components: {
     BottomNav,
-    Produk
+    Produk,
   },
   methods: {
     logout() {
       console.log("klik");
       localStorage.removeItem("Bearer");
       this.$router.push({ name: "Home" });
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style></style>
+<style scoped>
+.logout {
+  cursor: pointer;
+}
+</style>
