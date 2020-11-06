@@ -16,7 +16,8 @@
             </v-card-text>
 
             <v-card-action>
-                <v-btn>ini tombol</v-btn>
+                <v-btn>hapus</v-btn>
+                <v-btn>edit</v-btn>
             </v-card-action>
             
             </div>
@@ -66,7 +67,7 @@ export default {
   },
   data() {
     return {
-      api: "http://192.168.137.227:8000/",
+      api: "http://192.168.137.163:8000/",
       items: [],
     };
   },

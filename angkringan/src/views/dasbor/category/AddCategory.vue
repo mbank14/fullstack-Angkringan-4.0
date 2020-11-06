@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       dialog: false,
-      api: "http://192.168.137.227:8000/",
+      api: "http://192.168.137.163:8000/",
       listCategory: [],
       tambahCategory: {
         name_c: "",
