@@ -12,7 +12,7 @@
 
               <v-card-text style="padding: 5px;">
                 <h4>{{ item.name }}</h4>
-                <p>{{ item.price }}</p>
+                <p>Rp. {{ item.price }}</p>
                 <p>{{ item.deskp }}</p>
               </v-card-text>
 

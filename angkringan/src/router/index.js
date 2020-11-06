@@ -112,6 +112,12 @@ const routes = [
       import(/* webpackChunkName: "transaksion" */ "../views/dasbor/Transaksion.vue")
   },
   {
+    path: "/transaksion-masuk",
+    name: "Transaksion Masuk",
+    component: () => 
+      import(/* webpackChunkName: "transaksion-masuk" */ "../components/transaksi/ComTransaksiMasuk.vue")
+  },
+  {
     path: "/transaksimasuk",
     name: "TransaksiMasuk",
     component: () =>

@@ -27,7 +27,7 @@
                 height="150"
               >
                 <div>logo</div>
-                <div>nama</div>
+                <div>e-payment</div>
               </v-card>
           </v-col>
       </v-row>
