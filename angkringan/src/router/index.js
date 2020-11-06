@@ -78,6 +78,14 @@ const routes = [
       ),
   },
   {
+    path: "/editproduk/:id",
+    name: "EditProduk",
+    component: () =>
+      import(
+        /* webpackChunkName: "tambahmenu" */ "../components/ComEditBarang.vue"
+      ),
+  },
+  {
     path: "/registrasi",
     name: "Registrasi",
     component: () =>
