@@ -3,10 +3,10 @@
       <h4>transaksi masuk</h4>
       <v-container>
           <v-row>
-              <v-col>
+              <v-col v-for="koko in id" :key="koko.id">
                   <v-card height="120">
                        <v-card-title>
-                           {{ id }}
+                           {{ koko.idku }}
                        </v-card-title>
                        <v-card-text>
                            
@@ -47,7 +47,17 @@ export default {
                     ]
                 }
             ],
-            id: "#123131"
+            id: [
+                {
+                idku: "#31321",
+            },
+                {
+                idku: "#43242",
+            },
+                {
+                idku: "#23432",
+            },
+            ]
         }
     },
 }
