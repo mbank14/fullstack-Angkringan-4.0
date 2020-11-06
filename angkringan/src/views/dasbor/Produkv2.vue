@@ -3,21 +3,23 @@
     <v-container fluid>
       <v-row>
         <v-col v-for="item in items" :key="item.id" cols="12">
-          <v-card flat>
+          <v-card flat color="pink">
             <div class="d-flex flex-no-wrap justify-space-between">
 
             <!-- ini image -->
-            <v-avatar class="ma-3" size="125" tile>
+            <v-avatar class="ma-1" size="125" tile>
               <v-img :src="item.image" :alt="item.image">img</v-img>
             </v-avatar>
 
             <v-card-text>
-                <p>ini judul</p>
+                <p>{{ item.name }}</p>
+                <p>{{ item.price}}</p>
+                <p>{{ item.deskp }}</p>
             </v-card-text>
 
-            <v-card-action>
-                <v-btn>hapus</v-btn>
-                <v-btn>edit</v-btn>
+            <v-card-action >
+                <v-btn small="true">hapus</v-btn>
+                <v-btn small="true">edit</v-btn>
             </v-card-action>
             
             </div>
