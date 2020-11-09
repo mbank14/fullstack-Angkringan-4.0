@@ -61,7 +61,7 @@ export default {
   data: () => {
     return {
       loading: false,
-      api: "http://192.168.137.227:8000/",
+      api: "http://192.168.137.163:8000/",
       login: {
         username: "",
         password: "",

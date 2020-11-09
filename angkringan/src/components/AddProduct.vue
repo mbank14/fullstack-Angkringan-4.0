@@ -68,7 +68,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      api: "http://192.168.137.227:8000/",
+      api: "http://192.168.137.163:8000/",
       loading: false,
       dialog: false,
       items: [],
@@ -107,9 +107,21 @@ export default {
           this.tambah,
           { headers: { Authorization: token } }
         );
+        this.$toast.success("Berhasil Tambah Barang", {
+          type: "success",
+          position: "top-right",
+          duration: 3000,
+          dismissable: true,
+        });
         console.log(response.data);
         this.$router.push({ path: "/dasbor" });
       } catch (error) {
+        this.$toast.error("Gagal Tambah Barang", {
+          type: "error",
+          position: "top-right",
+          duration: 3000,
+          dismissable: true,
+        });
         this.loading = false;
         console.log(error);
       }
