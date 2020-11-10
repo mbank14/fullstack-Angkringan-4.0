@@ -1,6 +1,11 @@
 <template>
   <div>
     <h1>ini detail transaksi</h1> 
+    <div v-for="kiki in detailTransaksion" :key="kiki.id">
+        <div v-for="koko in kiki" :key="koko.id">
+            {{ koko }}
+        </div>
+    </div>
   </div>
 </template>
 

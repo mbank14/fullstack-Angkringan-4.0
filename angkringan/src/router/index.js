@@ -122,7 +122,13 @@ const routes = [
     name: "TransaksiMasuk",
     component: () =>
       import(/* webpackChunkName: "transaksimasuk" */ "../components/ComTransaksiMasuk.vue")
-  }
+  },
+  {
+    path: "/transaksimasukdetail",
+    name: "TransaksiMasukDetail",
+    component: () =>
+      import(/* webpackChunkName: "transaksimasukdetail" */ "../components/transaksi/ComDetailTransaksi.vue")
+  },
 ];
 
 const router = new VueRouter({
