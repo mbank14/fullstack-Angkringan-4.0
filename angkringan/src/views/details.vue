@@ -11,11 +11,11 @@
       <Search class="d-flex justify-end mb-2" />
 
       <!-- Store Name -->
-      <v-card class="mx-left " max-width="450" flat cols="12" sm="6">
+      <!-- <v-card class="mx-left " max-width="450" flat cols="12" sm="6">
         <v-list-item three-line>
           <v-list-item-avatar tile size="140" color="grey">
             <v-img
-              :src="this.data.src"
+              :src="this.image"
               class="white--text align-end rounded-lg"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             >
@@ -29,26 +29,26 @@
             <div class="overline mb-4"></div>
           </v-list-item-content>
         </v-list-item>
-      </v-card>
+      </v-card> -->
 
       <!-- List Item  -->
       <v-row>
         <v-col
-          v-for="detail in data.menu"
-          :key="detail.menuId"
+          v-for="detail in barang"
+          :key="detail.id"
           cols="12"
           md="3"
           sm="6"
         >
           <v-card class="mx-auto my-12" max-width="374">
             <v-img
-              :src="detail.src"
+              :src="detail.image"
               height="250"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             >
             </v-img>
             <v-card-title class="text-item">
-              {{ detail.namaMenu }}
+              {{ detail.name }}
             </v-card-title>
             <v-card-text>
               <v-row align="center" class="mx-0"></v-row>
@@ -88,28 +88,28 @@ import Search from "@/components/Search";
 export default {
   data() {
     return {
-      data: []
+      api: "http://192.168.43.149:8000/",
+      barang: [],
     };
   },
   components: {
     breadcrumbs,
-    Search
+    Search,
   },
   computed: {},
   methods: {
     async detailsProduct() {
       const response = await axios.get(
-        `http://localhost:3000/toko/${this.$route.params.id}`
+        `${this.api}products/${this.$route.params.id}/show_b`
       );
-      this.data = response.data;
-      console.log(response.data);
-    }
+      this.barang = response.data.data;
+      console.log(this.barang);
+    },
   },
   mounted() {
     this.detailsProduct();
-  }
+  },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

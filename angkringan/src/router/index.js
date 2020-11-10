@@ -10,12 +10,7 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  {
-    path: "/makanan",
-    name: "Makanan",
-    component: () =>
-      import(/* webpackChunkName: "makanan" */ "../views/Makanan.vue"),
-  },
+ 
 
   {
     path: "/cart",
@@ -50,12 +45,7 @@ const routes = [
     name: "Registrasi",
     component: () => import("../views/RegistrasiView.vue"),
   },
-  
-  {
-    path: "/toko",
-    name: "Toko",
-    component: () => import(/* webpackChunkName: "toko" */ "../views/Toko.vue"),
-  },
+
   //ini admin
   {
     path: "/login",
@@ -91,12 +81,7 @@ const routes = [
     component: () => 
       import(/* webpackChunkName: "produk" */ "../views/dasbor/Produk.vue")
   },
-  {
-    path: "/produk2",
-    name: "Produk2",
-    component: () => 
-      import(/* webpackChunkName: "produk" */ "../views/dasbor/Produkv2.vue")
-  },
+ 
   {
     path: "/transaksion",
     name: "Transaksion",

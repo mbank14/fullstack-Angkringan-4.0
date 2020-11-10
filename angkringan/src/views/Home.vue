@@ -2,17 +2,11 @@
   <v-container>
     <!-- <Search class="d-flex justify-end" /> -->
     <v-row>
-      <v-col
-        v-for="items in allProducts"
-        :key="items.id"
-        cols="12"
-        md="3"
-        sm="6"
-      >
+      <v-col v-for="items in toko" :key="items.id" cols="12" md="3" sm="6">
         <v-card class="pa-2 card-hover" outlined>
-          <v-card-title class="text-title">{{ items.nameToko }}</v-card-title>
+          <v-card-title class="text-title">{{ items.nama }}</v-card-title>
           <v-img
-            :src="items.src"
+            :src="items.gambar"
             class="white--text align-end rounded-xl"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="180px"
@@ -38,40 +32,29 @@
 
 <script>
 import axios from "axios";
-import { mapGetters, mapActions } from "vuex";
 // import Search from "@/components/Search";
 
 export default {
   name: "Home",
   data() {
     return {
-      api: process.env.VUE_APP_API_URL,
-      item: [],
-      list: [],
+      api: "http://192.168.43.149:8000/",
+      toko: [],
     };
   },
-  components: {
-    // Search
-  },
-  computed: {
-    ...mapGetters(["allProducts"]),
-  },
+  components: {},
+
   methods: {
-    ...mapActions(["getProduct"]),
-    setData(data) {
-      this.item = data;
-    },
-    async getList() {
-      const response = await axios.get(`${this.api}posts`);
-      this.list = response.data;
-      console.log(this.list);
+    async getToko() {
+      const response = await axios.get(`${this.api}toko/`);
+      this.toko = response.data.toko;
+      console.log(this.toko);
     },
   },
   async mounted() {
-    this.getProduct();
-    this.getList();
+    this.getToko();
     if (localStorage.getItem("Bearer")) {
-      this.$router.push({ name: "Pedagang" });
+      this.$router.push({ name: "Dasbor" });
     } else {
       scrollTo(0, 0);
     }

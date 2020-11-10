@@ -20,9 +20,7 @@
               v-model="login.username"
             >
             </v-text-field>
-          </v-container>
-          <!-- password -->
-          <v-container class="fluid">
+            <!--Password  -->
             <v-card-subtitle class="px-1 py-1 ">Password</v-card-subtitle>
             <v-text-field
               flat
@@ -35,6 +33,7 @@
             >
             </v-text-field>
           </v-container>
+          <!-- Button Action -->
           <v-card-actions>
             <v-btn
               color="white--text green darken-1"
@@ -61,7 +60,7 @@ export default {
   data: () => {
     return {
       loading: false,
-      api: "http://192.168.137.163:8000/",
+      api: "http://192.168.43.149:8000/",
       login: {
         username: "",
         password: "",

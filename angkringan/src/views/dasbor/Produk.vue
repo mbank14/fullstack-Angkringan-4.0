@@ -134,7 +134,7 @@ export default {
   },
   data() {
     return {
-      api: "http://192.168.137.163:8000/",
+      api: "http://192.168.43.149:8000/",
       dialog: false,
       loading: false,
       items: [],
