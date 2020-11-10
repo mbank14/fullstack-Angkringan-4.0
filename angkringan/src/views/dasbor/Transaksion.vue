@@ -1,8 +1,8 @@
 <template>
   <div>
-      <h1>ini untuk transaksi</h1>
-      <v-row dense>
-          <v-col cols="12">
+      <h4>transaksi</h4>
+      <div dense class="d-flex flex-wrap justify-center">
+          <div style="margin:10px">
               <v-card max-width="150"
                 height="150"
               >
@@ -13,24 +13,36 @@
                   <div>transaksi masuk</div>
                 </v-container>
               </v-card>
-          </v-col>
-          <v-col>
+          </div>
+
+            <!-- ini cadangan untuk transaksi lain -->
+
+          <!-- <div style="margin:10px">
               <v-card max-width="150"
                 height="150"
               >
-                <div>logo</div>
-                <div>transaksi</div>
+                <v-container fluid>
+                  <div>logo</div>
+                </v-container>
+                <v-container>
+                  <div>transaksi masuk</div>
+                </v-container>
               </v-card>
-          </v-col>
-          <v-col>
+          </div>
+          <div style="margin:10px">
               <v-card max-width="150"
                 height="150"
               >
-                <div>logo</div>
-                <div>e-payment</div>
+                <v-container fluid>
+                  <div>logo</div>
+                </v-container>
+                <v-container>
+                  <div>transaksi masuk</div>
+                </v-container>
               </v-card>
-          </v-col>
-      </v-row>
+          </div> -->
+          
+      </div>
   </div>
 </template>
 
