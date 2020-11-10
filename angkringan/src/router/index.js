@@ -66,6 +66,14 @@ const routes = [
       ),
   },
   {
+    path: "/editproduk/:id",
+    name: "EditProduk",
+    component: () =>
+      import(
+        /* webpackChunkName: "tambahmenu" */ "../components/ComEditBarang.vue"
+      ),
+  },
+  {
     path: "/registrasi",
     name: "Registrasi",
     component: () =>
@@ -87,11 +95,23 @@ const routes = [
       import(/* webpackChunkName: "transaksion" */ "../views/dasbor/Transaksion.vue")
   },
   {
+    path: "/transaksion-masuk",
+    name: "Transaksion Masuk",
+    component: () => 
+      import(/* webpackChunkName: "transaksion-masuk" */ "../components/transaksi/ComTransaksiMasuk.vue")
+  },
+  {
     path: "/transaksimasuk",
     name: "TransaksiMasuk",
     component: () =>
       import(/* webpackChunkName: "transaksimasuk" */ "../components/ComTransaksiMasuk.vue")
-  }
+  },
+  {
+    path: "/transaksimasukdetail",
+    name: "TransaksiMasukDetail",
+    component: () =>
+      import(/* webpackChunkName: "transaksimasukdetail" */ "../components/transaksi/ComDetailTransaksi.vue")
+  },
 ];
 
 const router = new VueRouter({
