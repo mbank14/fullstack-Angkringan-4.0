@@ -1,15 +1,22 @@
 <template>
   <div>
-      <h4>transaksi masuk</h4>
+      <v-toolbar>
+          <v-toolbar-title>
+
+      transaksi masuk
+          </v-toolbar-title>
+      </v-toolbar>
+
+
       <v-container>
-          <v-row>
+          <v-row style="flex-direction: column;">
               <v-col v-for="koko in id" :key="koko.id">
-                  <v-card height="120">
-                       <v-card-title>
-                           {{ koko.idku }}
-                       </v-card-title>
+                  <v-card height="auto">
+                  
                        <v-card-text>
-                           
+                           <h3>{{koko.idku}}</h3>
+                           <v-spacer></v-spacer>
+                           <h3>{{koko.tgl}}</h3>
                         </v-card-text> 
                   </v-card>
               </v-col>
@@ -50,12 +57,15 @@ export default {
             id: [
                 {
                 idku: "#31321",
+                tgl: "14-desember-2019"
             },
                 {
                 idku: "#43242",
+                tgl: "14-desember-2011"
             },
                 {
                 idku: "#23432",
+                tgl: "14-desember-2029"
             },
             ]
         }
