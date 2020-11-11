@@ -22,7 +22,6 @@
             <v-list-item-avatar tile size="100" color="grey">
               <img
                 :src="item.image"
-                :alt="item.image"
                 class="white--text align-end rounded-lg"
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                 height="200px"
@@ -54,7 +53,6 @@
                     @click="editBarang(item)"
                   >
                     Edit
-                    <!-- <v-icon color="green darken-2">mdi-pencil</v-icon> -->
                   </v-btn>
                 </v-card-actions>
               </template>
@@ -81,12 +79,6 @@
                     <v-text-field
                       v-model="editDeskp"
                       label="Deskripsi"
-                      dense
-                      outlined
-                    ></v-text-field>
-                    <v-text-field
-                      v-model="editImage"
-                      label="Gambar"
                       dense
                       outlined
                     ></v-text-field>
@@ -142,7 +134,6 @@ export default {
       editName: "",
       editPrice: "",
       editDeskp: "",
-      editImage: "",
     };
   },
   methods: {
@@ -156,10 +147,10 @@ export default {
     },
 
     editBarang(item) {
+      console.log("halo");
       this.editId = item.id;
       this.editName = item.name;
       this.editPrice = item.price;
-      this.editImage = item.image;
       this.editDeskp = item.deskp;
     },
 
@@ -167,9 +158,9 @@ export default {
       this.loading = true;
       try {
         const updateItem = {
+          id: item.id,
           name: this.editName,
           price: this.editPrice,
-          image: this.editImage,
           deskp: this.editDeskp,
         };
         await axios.put(`${this.api}products/${item.id}/update`, updateItem);
@@ -193,6 +184,7 @@ export default {
         });
       }
     },
+
     async delBarang(id) {
       // const token = localStorage.getItem("Bearer");
       const response = await axios.delete(`${this.api}products/${id}/delete`);

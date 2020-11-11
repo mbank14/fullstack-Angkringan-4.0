@@ -1,6 +1,9 @@
 <template>
   <v-container>
     <!-- <Search class="d-flex justify-end" /> -->
+    <p class="text-right grey--text my-4">
+      Ingin berdagang? <router-link to="/login">Login/Daftar</router-link>
+    </p>
     <v-row>
       <v-col v-for="items in toko" :key="items.id" cols="12" md="3" sm="6">
         <v-card class="pa-2 card-hover" outlined>
@@ -18,7 +21,7 @@
           <router-link :to="`/details/${items.id}`">
             <v-btn
               class="text-capitalize text-btn"
-              color="white--text brown darken-1"
+              color="white--text green darken-1"
               width="100%"
             >
               Kunjungi Toko</v-btn
@@ -61,3 +64,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.v-application p {
+  font-size: 12px;
+}
+</style>

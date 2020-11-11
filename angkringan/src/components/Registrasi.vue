@@ -56,6 +56,29 @@
             v-model="register.toko.nama"
           >
           </v-text-field>
+
+          <!-- No Ktp -->
+          <v-card-subtitle class="px-1 py-1">No. KTP</v-card-subtitle>
+          <v-text-field
+            type="text"
+            placeholder="No. KTP"
+            dense
+            outlined
+            :rules="ktpRules"
+            required
+            v-model="register.toko.nomor_ktp"
+          >
+          </v-text-field>
+          <!-- Gambar KTP -->
+          <!-- <v-card-subtitle class="px-1 py-1">Upload KTP</v-card-subtitle>
+          <input
+            @change="handleImageKTP"
+            class="custom-input"
+            type="file"
+            accept="image/*"
+          /> -->
+          <!-- <v-img :src="this.register.toko.gambar_ktp"></v-img> -->
+
           <!-- Alamat Toko -->
           <v-card-subtitle class="px-1 py-1">Alamat Toko</v-card-subtitle>
           <v-text-field
@@ -80,27 +103,6 @@
             v-model="register.toko.telp"
           >
           </v-text-field>
-          <!-- No Ktp -->
-          <v-card-subtitle class="px-1 py-1">No. KTP</v-card-subtitle>
-          <v-text-field
-            type="text"
-            placeholder="No. KTP"
-            dense
-            outlined
-            :rules="ktpRules"
-            required
-            v-model="register.toko.nomor_ktp"
-          >
-          </v-text-field>
-          <!-- Gambar KTP -->
-          <v-card-subtitle class="px-1 py-1">Upload KTP</v-card-subtitle>
-          <input
-            @change="handleImage"
-            class="custom-input"
-            type="file"
-            accept="image/*"
-          />
-          <v-img :src="this.register.toko.gambarKTP"></v-img>
 
           <!-- Gambar Toko -->
           <v-card-subtitle class="px-1 py-1">Upload Toko</v-card-subtitle>
@@ -110,7 +112,7 @@
             type="file"
             accept="image/*"
           />
-          <v-img :src="this.register.toko.gambar"></v-img>
+          <!-- <v-img :src="this.register.toko.gambar"></v-img> -->
         </v-container>
         <!-- Button Action -->
         <v-card-actions>
@@ -152,7 +154,6 @@ export default {
     return {
       loading: false,
       api: "http://192.168.43.149:8000/",
-      image: "",
       register: {
         user: {
           username: "",
@@ -160,11 +161,11 @@ export default {
         },
         toko: {
           nama: "",
+          nomor_ktp: "",
+          // gambar_ktp: "",
           alamat: "",
           telp: "",
-          nomor_ktp: "",
           gambar: "",
-          gambarKTP: "",
         },
       },
       // Rules Required
@@ -197,6 +198,14 @@ export default {
         (v) =>
           (v && v.length >= 5) || "nama toko must be less than 5 characters",
       ],
+      // No. KTP
+      nomor_ktp: "",
+      ktpRules: [
+        (v) => !!v || "No. ktp is required",
+        (v) =>
+          (v && v.length >= 5) ||
+          "no. telp toko must be less than 16 characters",
+      ],
       // Alamat
       alamat: "",
       alamatTokoRules: [
@@ -211,15 +220,6 @@ export default {
         (v) =>
           (v && v.length >= 5) ||
           "no. telp toko must be less than 5 characters",
-      ],
-
-      // No. KTP
-      NoKtp: "",
-      ktpRules: [
-        (v) => !!v || "No. ktp is required",
-        (v) =>
-          (v && v.length >= 5) ||
-          "no. telp toko must be less than 16 characters",
       ],
     };
   },
@@ -266,16 +266,22 @@ export default {
     // Upload Image
     // upload image TOKO
     handleImage(e) {
-      console.log(e);
       const selectedImage = e.target.files[0];
-      this.createdBase64Image(selectedImage);
-    },
-    createdBase64Image(fileObject) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
+      this.createdBase64Image(selectedImage, (e) => {
         console.log(e.target);
         this.register.toko.gambar = e.target.result;
-      };
+      });
+    },
+    // handleImageKTP(e) {
+    //   const selectedImageKTP = e.target.files[0];
+    //   this.createdBase64Image(selectedImageKTP, (e) => {
+    //     console.log(e.target);
+    //     this.register.toko.gambar_ktp = e.target.result;
+    //   });
+    // },
+    createdBase64Image(fileObject, callback) {
+      const reader = new FileReader();
+      reader.onload = callback;
       reader.readAsDataURL(fileObject);
     },
     reset() {

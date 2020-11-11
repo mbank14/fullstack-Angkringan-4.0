@@ -7,9 +7,9 @@
           <h1 class="mx-5 font-weight-black">Peken 4.0</h1>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <p class="grey--text my-4">
+        <!-- <p class="grey--text my-4">
           Ingin berdagang? <router-link to="/login">Login/Daftar</router-link>
-        </p>
+        </p> -->
       </v-app-bar>
     </v-container>
 
@@ -17,7 +17,7 @@
     <v-container class="d-lg-none d-xl-flex">
       <v-app-bar app flat color="white">
         <v-app-bar-nav-icon
-          class="brown--text"
+          class="green--text"
           @click="drawer = true"
         ></v-app-bar-nav-icon>
         <v-toolbar-title class="grey--text text-uppercase">
@@ -72,10 +72,6 @@ export default {
 </script>
 
 <style scoped>
-.v-application p {
-  font-size: 12px;
-}
-
 .v-application h1 {
   font-size: 1.5em;
 }

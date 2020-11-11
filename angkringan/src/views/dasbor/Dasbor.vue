@@ -8,7 +8,7 @@
       </span>
     </v-toolbar>
     <div>
-      <Toko />
+      <!-- <Toko /> -->
       <produk></produk>
       <router-view></router-view>
 
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Toko from "./toko/DetailToko";
+// import Toko from "./toko/DetailToko";
 import Produk from "./Produk";
 import BottomNav from "@/components/BottomNav";
 export default {
@@ -32,7 +32,7 @@ export default {
   components: {
     BottomNav,
     Produk,
-    Toko,
+    // Toko,
   },
   methods: {
     logout() {
