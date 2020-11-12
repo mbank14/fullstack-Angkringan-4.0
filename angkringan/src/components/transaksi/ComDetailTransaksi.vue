@@ -35,7 +35,7 @@
           </tr>
         </thead>
         <tbody v-for="(item, index) in detailTransaksion" :key="item.id">
-          <tr v-for="(koo) in item.items" :key="koo.id">
+          <tr v-for="koo in item.items" :key="koo.id">
             <td>{{ index + 1 }}</td>
             <td>{{ koo.nama }}</td>
             <td>Rp. {{ koo.harga }}</td>
@@ -103,5 +103,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

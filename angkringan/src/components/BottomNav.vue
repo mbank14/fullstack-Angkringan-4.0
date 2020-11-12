@@ -1,28 +1,32 @@
 <template>
   <div>
-       <div style="
+    <div
+      style="
         width: 100%;
         height: 70px;
-    ">
-    <v-bottom-navigation :value="value" color="pink" fixed >
-      <v-btn>
-        <span><router-link to="/produk">produk</router-link></span>
+    "
+    >
+      <v-bottom-navigation
+        :value="value"
+        color="white"
+        background-color="#5c6e91"
+        fixed
+      >
+        <v-btn>
+          <span><router-link to="/produk">Produk</router-link></span>
+          <v-icon color="#dd9866">mdi-clipboard-list-outline</v-icon>
+        </v-btn>
 
-        <v-icon>mdi-history</v-icon>
-      </v-btn>
+        <v-btn>
+          <span><router-link to="#">Diskon</router-link></span>
+          <v-icon color="#dd9866">mdi-sale</v-icon>
+        </v-btn>
 
-      <v-btn>
-        <span>Diskon</span>
-
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn>
-        <span>Transaksi</span>
-
-        <v-icon>mdi-map-marker</v-icon>
-      </v-btn>
-    </v-bottom-navigation>
+        <v-btn>
+          <span><router-link to="#">Transaksi</router-link></span>
+          <v-icon color="#dd9866">mdi-cart-variant</v-icon>
+        </v-btn>
+      </v-bottom-navigation>
     </div>
   </div>
 </template>
@@ -32,12 +36,14 @@ export default {
   data() {
     return {
       fixed: true,
-            value: 'recent'
-    }
+      value: "recent",
+    };
   },
-}
+};
 </script>
 
-<style>
-
+<style scoped>
+.v-application a {
+  color: white;
+}
 </style>

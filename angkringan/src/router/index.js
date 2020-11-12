@@ -11,13 +11,6 @@ const routes = [
     component: Home,
   },
   {
-    path: "/makanan",
-    name: "Makanan",
-    component: () =>
-      import(/* webpackChunkName: "makanan" */ "../views/Makanan.vue"),
-  },
-
-  {
     path: "/cart",
     name: "Cart",
     // route level code-splitting
@@ -50,12 +43,7 @@ const routes = [
     name: "Registrasi",
     component: () => import("../views/RegistrasiView.vue"),
   },
-  
-  {
-    path: "/toko",
-    name: "Toko",
-    component: () => import(/* webpackChunkName: "toko" */ "../views/Toko.vue"),
-  },
+
   //ini admin
   {
     path: "/login",
@@ -99,6 +87,10 @@ const routes = [
     component: () => 
       import(/* webpackChunkName: "produk" */ "../views/dasbor/Produk.vue")
   },
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 43058587f92679306c4da6b865302eca33fd31d1
   {
     path: "/transaksion",
     name: "Transaksion",

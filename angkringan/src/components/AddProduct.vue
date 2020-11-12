@@ -2,7 +2,7 @@
   <div>
     <v-container class="fluid">
       <v-card app flat class="mx-auto my-12" max-width="544">
-        <v-card-title class="px-1 py-1 ">Tambah Menu</v-card-title>
+        <v-card-title class="px-1 py-1 ">Tambah Barang</v-card-title>
         <v-text-field
           v-model="tambah.kode"
           label="Kode"
@@ -27,12 +27,22 @@
           dense
           outlined
         ></v-text-field>
-        <v-text-field
+        <!-- <v-file-input
           v-model="tambah.image"
+          @change="handleImage"
           label="Gambar"
+          accept="image/png, image/jpeg, image/bmp"
+          counter
           dense
           outlined
-        ></v-text-field>
+        ></v-file-input> -->
+        <input
+          @change="handleImage"
+          class="custom-input"
+          type="file"
+          accept="image/*"
+        />
+        <v-img max-width="200px" :src="this.tambah.image"></v-img>
         <v-row>
           <v-col>
             <v-select
@@ -52,10 +62,14 @@
         </v-row>
 
         <v-card-actions class="px-1 py-1">
-          <v-btn color="white--text green darken-1" @click="addData()">
+          <v-btn
+            class="text-capitalize"
+            color="white--text green darken-1"
+            @click="addData()"
+          >
             Tambah
           </v-btn>
-          <v-btn outlined to="/dasbor">Batal</v-btn>
+          <v-btn class="text-capitalize" outlined to="/dasbor">Batal</v-btn>
         </v-card-actions>
       </v-card>
     </v-container>
@@ -68,9 +82,10 @@ import axios from "axios";
 export default {
   data() {
     return {
-      api: "http://192.168.137.163:8000/",
+      api: "http://192.168.137.8:8000/",
       loading: false,
       dialog: false,
+      // image: "",
       items: [],
       tambah: {
         cate: "",
@@ -86,6 +101,7 @@ export default {
     addCategory,
   },
   methods: {
+    // Get category
     async getCategory() {
       const token = localStorage.getItem("Bearer");
       console.log(token);
@@ -96,6 +112,7 @@ export default {
       console.log(response.data.data);
     },
 
+    // Add data
     async addData() {
       this.loading = true;
       const token = localStorage.getItem("Bearer");
@@ -125,6 +142,21 @@ export default {
         this.loading = false;
         console.log(error);
       }
+    },
+
+    // Upload Image
+    handleImage(e) {
+      console.log(e);
+      const selectedImage = e.target.files[0];
+      this.createdBase64Image(selectedImage);
+    },
+    createdBase64Image(fileObject) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        console.log(e.target);
+        this.tambah.image = e.target.result;
+      };
+      reader.readAsDataURL(fileObject);
     },
   },
   mounted() {

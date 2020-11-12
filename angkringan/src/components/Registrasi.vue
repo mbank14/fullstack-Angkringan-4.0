@@ -8,10 +8,11 @@
         </v-card-text>
 
         <v-container class="fluid">
-          <v-card-subtitle class="px-1 py-1">Nama Depan</v-card-subtitle>
+          <!-- Nama -->
+          <v-card-subtitle class="px-1 py-1">Nama</v-card-subtitle>
           <v-text-field
             type="text"
-            placeholder="Nama Depan"
+            placeholder="Nama"
             dense
             outlined
             :rules="firstnameRules"
@@ -19,23 +20,7 @@
             v-model="register.user.first_name"
           >
           </v-text-field>
-        </v-container>
-
-        <v-container class="fluid">
-          <v-card-subtitle class="px-1 py-1">Nama Belakang</v-card-subtitle>
-          <v-text-field
-            type="text"
-            placeholder="Nama Belakang"
-            dense
-            outlined
-            :rules="lastnameRules"
-            required
-            v-model="register.user.last_name"
-          >
-          </v-text-field>
-        </v-container>
-
-        <v-container class="fluid">
+          <!-- Username -->
           <v-card-subtitle class="px-1 py-1">Username</v-card-subtitle>
           <v-text-field
             type="text"
@@ -47,9 +32,7 @@
             v-model="register.user.username"
           >
           </v-text-field>
-        </v-container>
-
-        <v-container class="fluid">
+          <!-- Password -->
           <v-card-subtitle class="px-1 py-1">Password</v-card-subtitle>
           <v-text-field
             type="password"
@@ -61,9 +44,7 @@
             v-model="register.user.password"
           >
           </v-text-field>
-        </v-container>
-
-        <v-container class="fluid">
+          <!-- Nama Toko -->
           <v-card-subtitle class="px-1 py-1">Nama Toko</v-card-subtitle>
           <v-text-field
             type="text"
@@ -75,8 +56,30 @@
             v-model="register.toko.nama"
           >
           </v-text-field>
-        </v-container>
-        <v-container class="fluid">
+
+          <!-- No Ktp -->
+          <v-card-subtitle class="px-1 py-1">No. KTP</v-card-subtitle>
+          <v-text-field
+            type="text"
+            placeholder="No. KTP"
+            dense
+            outlined
+            :rules="ktpRules"
+            required
+            v-model="register.toko.nomor_ktp"
+          >
+          </v-text-field>
+          <!-- Gambar KTP -->
+          <!-- <v-card-subtitle class="px-1 py-1">Upload KTP</v-card-subtitle>
+          <input
+            @change="handleImageKTP"
+            class="custom-input"
+            type="file"
+            accept="image/*"
+          /> -->
+          <!-- <v-img :src="this.register.toko.gambar_ktp"></v-img> -->
+
+          <!-- Alamat Toko -->
           <v-card-subtitle class="px-1 py-1">Alamat Toko</v-card-subtitle>
           <v-text-field
             type="text"
@@ -88,8 +91,7 @@
             v-model="register.toko.alamat"
           >
           </v-text-field>
-        </v-container>
-        <v-container class="fluid">
+          <!-- No Telp -->
           <v-card-subtitle class="px-1 py-1">No. Telp</v-card-subtitle>
           <v-text-field
             type="text"
@@ -101,30 +103,52 @@
             v-model="register.toko.telp"
           >
           </v-text-field>
-        </v-container>
-        <v-container class="fluid">
-          <v-card-subtitle class="px-1 py-1">Gambar Toko</v-card-subtitle>
-          <v-text-field
-            type="text"
-            placeholder="Link Gambar"
-            dense
-            outlined
-            :rules="gambarRules"
-            required
-            v-model="register.toko.gambar"
-          >
-          </v-text-field>
-        </v-container>
 
+          <!-- Gambar Toko -->
+          <v-card-subtitle class="px-1 py-1">Upload Toko</v-card-subtitle>
+          <input
+            @change="handleImage"
+            class="custom-input"
+            type="file"
+            accept="image/*"
+          />
+          <v-img
+            class="mt-2"
+            max-width="200px"
+            :src="this.register.toko.gambar"
+          ></v-img>
+
+          <!-- Checkbox Terms and Conditions -->
+          <v-checkbox v-model="checkbox" :rules="checkRules">
+            <template v-slot:label>
+              <div>
+                Semua data yang saya kirimkan adalah data yang sebenar benarnya
+              </div>
+            </template>
+          </v-checkbox>
+        </v-container>
+        <!-- Button Action -->
         <v-card-actions>
           <v-btn
+            class="white--text text-capitalize"
             :loading="loading"
-            color="white--text green darken-1"
+            color="#5c6e91"
             @click="validate"
             >Daftar</v-btn
           >
-          <v-btn color="white--text secondary" @click="reset">Reset</v-btn>
-          <v-btn color="white--black white" outlined to="/">Batal</v-btn>
+          <v-btn
+            class="white--text text-capitalize"
+            color="#dd9866"
+            @click="reset"
+            >Reset</v-btn
+          >
+          <v-btn
+            class="text-capitalize"
+            color="white--black white"
+            outlined
+            to="/"
+            >Batal</v-btn
+          >
         </v-card-actions>
 
         <v-card-subtitle>
@@ -142,7 +166,7 @@ export default {
   data() {
     return {
       loading: false,
-      api: "http://192.168.137.163:8000/",
+      api: "http://192.168.137.8:8000/",
       register: {
         user: {
           username: "",
@@ -150,66 +174,76 @@ export default {
         },
         toko: {
           nama: "",
+          nomor_ktp: "",
           alamat: "",
           telp: "",
           gambar: "",
         },
       },
-
+      // Rules Required
       valid: true,
+      // Firstname
       firstName: "",
       firstnameRules: [
-        (v) => !!v || "First Name is required",
-        (v) =>
-          (v && v.length >= 5) || "first name must be less than 5 characters",
+        (v) => !!v || "Name is required",
+        (v) => (v && v.length >= 10) || "Name must be less than 10 characters",
       ],
-      lastName: "",
-      lastnameRules: [
-        (v) => !!v || "Last Name is required",
-        (v) =>
-          (v && v.length >= 5) || "last name must be less than 5 characters",
-      ],
+      // Username
       userName: "",
       userNameRules: [
         (v) => !!v || "Username is required",
         (v) =>
           (v && v.length >= 5) || "username must be less than 5 characters",
       ],
+      // Password
       password: "",
       passwordRules: [
         (v) => !!v || "password is required",
         (v) =>
-          (v && v.length >= 5) || "password must be less than 10 characters",
+          (v && v.length >= 8) || "password must be less than 8 characters",
       ],
+      // Nama Toko
       nama: "",
       namaTokoRules: [
         (v) => !!v || "Nama Toko is required",
         (v) =>
-          (v && v.length >= 5) || "nama toko must be less than 5 characters",
+          (v && v.length >= 10) || "nama toko must be less than 10 characters",
       ],
+      // No. KTP
+      nomor_ktp: "",
+      ktpRules: [
+        (v) => !!v || "No. ktp is required",
+        (v) =>
+          /^((1[1-9])|(21)|([37][1-6])|(5[1-4])|(6[1-5])|([8-9][1-2]))[0-9]{2}[0-9]{2}(([0-6][0-9])|(7[0-1]))((0[1-9])|(1[0-2]))([0-9]{2})[0-9]{4}$/.test(
+            v
+          ) || "owner's ktp number must be less than 16 characters",
+      ],
+      // Alamat
       alamat: "",
       alamatTokoRules: [
         (v) => !!v || "Alamat Toko is required",
         (v) =>
-          (v && v.length >= 5) || "alamat toko must be less than 5 characters",
+          (v && v.length >= 15) ||
+          "alamat toko must be less than 15 characters",
       ],
+      // No. Telp
       telp: "",
       telpRules: [
-        (v) => !!v || "No. Telp is required",
+        (v) => !!v || "No. HP is required",
         (v) =>
-          (v && v.length >= 5) ||
-          "no. telp toko must be less than 5 characters",
+          /^(^\+62\s?|^0)(\d{3,4}-?){2}\d{3,4}$/.test(v) ||
+          "No. Hp must be valid",
       ],
-      gambar: "",
-      gambarRules: [
-        (v) => !!v || "gambar is required",
-        (v) =>
-          (v && v.length >= 5) || "gambar toko must be less than 5 characters",
+      checkbox: false,
+      checkRules: [
+        (v) => !!v || "You must check it if want continue to register",
       ],
     };
   },
   methods: {
+    // validasi Register
     async validate() {
+      console.log(this.register);
       this.loading = true;
       try {
         if (this.$refs.form.validate()) {
@@ -245,6 +279,28 @@ export default {
           dismissable: true,
         });
       }
+    },
+
+    // Upload Image
+    // upload image TOKO
+    handleImage(e) {
+      const selectedImage = e.target.files[0];
+      this.createdBase64Image(selectedImage, (e) => {
+        console.log(e.target);
+        this.register.toko.gambar = e.target.result;
+      });
+    },
+    // handleImageKTP(e) {
+    //   const selectedImageKTP = e.target.files[0];
+    //   this.createdBase64Image(selectedImageKTP, (e) => {
+    //     console.log(e.target);
+    //     this.register.toko.gambar_ktp = e.target.result;
+    //   });
+    // },
+    createdBase64Image(fileObject, callback) {
+      const reader = new FileReader();
+      reader.onload = callback;
+      reader.readAsDataURL(fileObject);
     },
     reset() {
       this.$refs.form.reset();

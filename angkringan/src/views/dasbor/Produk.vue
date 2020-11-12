@@ -1,17 +1,25 @@
 <template>
   <div>
-    <v-container class="fluid">
-      <v-row> </v-row>
+    <v-container>
+      <!-- <v-toolbar flat class="black--text">
+        <v-toolbar-title>Produk</v-toolbar-title>
+        <v-spacer></v-spacer>
+      </v-toolbar> -->
+      <DetailToko />
       <v-card class="mx-auto my-auto" flat app>
         <v-row>
           <v-col>
             <v-card-title>List Barang</v-card-title>
           </v-col>
-          <v-spacer></v-spacer>
           <v-col>
+            <v-spacer></v-spacer>
             <v-card-actions>
-              <v-btn text outlined class="mx-2 text-capitalize" to="/tambahmenu"
-                >Tambah Menu</v-btn
+              <v-btn
+                right
+                class="mx-2 white--text text-capitalize"
+                color="#5c6e91"
+                to="/tambahmenu"
+                >Tambah Barang</v-btn
               >
               <v-spacer></v-spacer>
             </v-card-actions>
@@ -19,13 +27,12 @@
         </v-row>
         <div v-for="item in items" :key="item.id">
           <v-list-item three-line>
-            <v-list-item-avatar tile size="100" color="grey">
+            <v-list-item-avatar tile size="180" color="grey">
               <img
                 :src="item.image"
-                :alt="item.image"
                 class="white--text align-end rounded-lg"
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                height="200px"
+                height="300px"
               />
             </v-list-item-avatar>
             <v-list-item-content>
@@ -41,79 +48,22 @@
               <v-list-item-text>{{ item.deskp }}</v-list-item-text>
             </v-list-item-content>
           </v-list-item>
-
           <v-card-actions>
             <!-- Btn Modal Edit -->
-            <v-dialog v-model="dialog" persistent max-width="600px">
-              <template v-slot:activator="{ on, attrs }">
-                <v-card-actions>
-                  <v-btn
-                    color="white--text green darken-1"
-                    v-bind="attrs"
-                    v-on="on"
-                    @click="editBarang(item)"
-                  >
-                    Edit
-                    <!-- <v-icon color="green darken-2">mdi-pencil</v-icon> -->
-                  </v-btn>
-                </v-card-actions>
-              </template>
-              <v-container class="fluid">
-                <v-card app flat>
-                  <v-card-title class="px-1 py-1">
-                    <v-container class="fluid">
-                      <span class="headline"> Edit Barang</span>
-                    </v-container>
-                  </v-card-title>
-                  <v-container class="fluid">
-                    <v-text-field
-                      v-model="editName"
-                      label="Nama Item"
-                      dense
-                      outlined
-                    ></v-text-field>
-                    <v-text-field
-                      v-model="editPrice"
-                      label="Harga"
-                      dense
-                      outlined
-                    ></v-text-field>
-                    <v-text-field
-                      v-model="editDeskp"
-                      label="Deskripsi"
-                      dense
-                      outlined
-                    ></v-text-field>
-                    <v-text-field
-                      v-model="editImage"
-                      label="Gambar"
-                      dense
-                      outlined
-                    ></v-text-field>
-                  </v-container>
-                  <v-card-actions>
-                    <v-btn
-                      color="white--text green darken-1"
-                      text
-                      @click="updateBarang(item)"
-                      >Update</v-btn
-                    >
-                    <v-btn
-                      color="white--text green darken-1"
-                      text
-                      @click="dialog = false"
-                      >Batal</v-btn
-                    >
-                  </v-card-actions>
-                </v-card>
-              </v-container>
-            </v-dialog>
-            <!-- End Btn Modal Edit -->
+            <v-card-actions>
+              <v-btn
+                class="white--text"
+                color="#5c6e91"
+                @click="editBarang(item)"
+              >
+                Edit
+              </v-btn>
+            </v-card-actions>
 
             <v-btn
               @click="delBarang(item.id)"
-              color="white--text red darken-2"
-              class="text-capitalize"
+              color="#dd9866"
+              class="white--text text-capitalize"
               >Hapus
               <!-- <v-icon color="red darken-2">mdi-trash-can</v-icon> -->
             </v-btn>
@@ -122,30 +72,92 @@
       </v-card>
     </v-container>
     <BottomNav />
+    <!-- Modal Button Edit -->
+    <v-dialog v-model="dialog" persistent max-width="600px">
+      <v-container class="fluid">
+        <v-card app flat>
+          <v-card-title class="px-1 py-1">
+            <v-container class="fluid">
+              <span class="headline"> Edit Barang</span>
+            </v-container>
+          </v-card-title>
+          <v-container class="fluid">
+            <v-text-field
+              label="Nama Item"
+              v-model="editName"
+              dense
+              outlined
+            ></v-text-field>
+            <v-text-field
+              label="Harga"
+              v-model="editPrice"
+              dense
+              outlined
+            ></v-text-field>
+            <v-text-field
+              label="Deskripsi"
+              v-model="editDeskp"
+              dense
+              outlined
+            ></v-text-field>
+            <!-- Gambar -->
+            <!-- <input
+              @change="handleImage"
+              class="custom-input"
+              type="file"
+              accept="image/*"
+            />
+            <v-img :src="this.tambah.image"></v-img> -->
+          </v-container>
+          <v-card-actions>
+            <v-btn
+              text
+              color="white--text green darken-1"
+              @click="updateBarang(item)"
+              >Update</v-btn
+            >
+            <v-btn text color="white--text green darken-1" @click="cancel"
+              >Batal</v-btn
+            >
+          </v-card-actions>
+        </v-card>
+      </v-container>
+    </v-dialog>
+    <!-- End Btn Modal Edit -->
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import BottomNav from "@/components/BottomNav";
+import DetailToko from "@/components/Toko/DetailToko";
 export default {
   components: {
     BottomNav,
+    DetailToko,
   },
   data() {
     return {
-      api: "http://192.168.137.163:8000/",
+      api: "http://192.168.137.8:8000/",
       dialog: false,
       loading: false,
       items: [],
+      id: "",
       editId: null,
       editName: "",
       editPrice: "",
       editDeskp: "",
-      editImage: "",
     };
   },
   methods: {
+    // Cancel Modal
+    cancel: function() {
+      this.dialog = false;
+      this.editName = "";
+      this.editPrice = "";
+      this.editDeskp = "";
+    },
+    // Get Barang
     async getBarang() {
       const token = localStorage.getItem("Bearer");
       const response = await axios.get(`${this.api}products/`, {
@@ -155,24 +167,29 @@ export default {
       console.log(this.items);
     },
 
+    // Select Edit Barang
     editBarang(item) {
+      this.dialog = true;
       this.editId = item.id;
       this.editName = item.name;
       this.editPrice = item.price;
-      this.editImage = item.image;
       this.editDeskp = item.deskp;
     },
-
-    async updateBarang(item) {
+    // Update Barang
+    async updateBarang() {
       this.loading = true;
       try {
         const updateItem = {
+          id: this.editId,
           name: this.editName,
           price: this.editPrice,
-          image: this.editImage,
           deskp: this.editDeskp,
         };
-        await axios.put(`${this.api}products/${item.id}/update`, updateItem);
+        console.log(updateItem);
+        await axios.put(
+          `${this.api}products/${this.editId}/update`,
+          updateItem
+        );
         this.loading = false;
         this.$toast.success("Berhasil Edit Data", {
           type: "success",
@@ -193,12 +210,40 @@ export default {
         });
       }
     },
+    // Upload image
+    // handleImage(e) {
+    //   console.log(e);
+    //   const selectedImage = e.target.files[0];
+    //   this.createdBase64Image(selectedImage);
+    // },
+    // createdBase64Image(fileObject) {
+    //   const reader = new FileReader();
+    //   reader.onload = (e) => {
+    //     console.log(e.target);
+    //     this.tambah.image = e.target.result;
+    //   };
+    //   reader.readAsDataURL(fileObject);
+    // },
+    // Delete Barang
     async delBarang(id) {
-      // const token = localStorage.getItem("Bearer");
-      const response = await axios.delete(`${this.api}products/${id}/delete`);
-      // this.items = response.data.data;
-      console.log(response);
-      this.getBarang();
+      try {
+        const response = await axios.delete(`${this.api}products/${id}/delete`);
+        console.log(response);
+        this.$toast.success("Berhasil Hapus Data", {
+          type: "success",
+          position: "top-right",
+          duration: 3000,
+          dismissable: true,
+        });
+        this.getBarang();
+      } catch (error) {
+        this.$toast.error("Gagal Hapus Data", {
+          type: "error",
+          position: "top-right",
+          duration: 3000,
+          dismissable: true,
+        });
+      }
     },
   },
   mounted() {
