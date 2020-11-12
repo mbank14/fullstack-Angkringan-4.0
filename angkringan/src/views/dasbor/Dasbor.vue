@@ -3,10 +3,10 @@
     <v-toolbar flat class="black--text">
       <v-toolbar-title>Produk</v-toolbar-title>
       <v-spacer></v-spacer>
+      <span class="logout black--text my-4" @click="logout()">
+        Logout?
+      </span>
     </v-toolbar>
-    <span class="logout black--text my-4" @click="logout()">
-      Logout?
-    </span>
     <div>
       <!-- <Toko /> -->
       <produk></produk>
