@@ -36,7 +36,8 @@
           <!-- Button Action -->
           <v-card-actions>
             <v-btn
-              color="white--text green darken-1"
+              class="white--text text-capitalize"
+              color="#5c6e91"
               :loading="loading"
               @click="loginItem()"
               >Login</v-btn
@@ -60,7 +61,7 @@ export default {
   data: () => {
     return {
       loading: false,
-      api: "http://192.168.43.149:8000/",
+      api: "http://192.168.137.8:8000/",
       login: {
         username: "",
         password: "",

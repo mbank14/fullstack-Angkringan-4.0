@@ -10,7 +10,7 @@
           <v-card-title class="text-title">{{ items.nama }}</v-card-title>
           <v-img
             :src="items.gambar"
-            class="white--text align-end rounded-xl"
+            class="white--text align-end rounded-lg"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="180px"
           >
@@ -20,8 +20,8 @@
           </v-card-actions>
           <router-link :to="`/details/${items.id}`">
             <v-btn
-              class="text-capitalize text-btn"
-              color="white--text green darken-1"
+              class="white--text text-capitalize text-btn"
+              color="#394867"
               width="100%"
             >
               Kunjungi Toko</v-btn
@@ -41,7 +41,7 @@ export default {
   name: "Home",
   data() {
     return {
-      api: "http://192.168.43.149:8000/",
+      api: "http://192.168.137.8:8000/",
       toko: [],
     };
   },

@@ -2,9 +2,9 @@
   <div>
     <!-- desktop -->
     <v-container class="pa-1 d-none d-sm-flex d-md-none d-lg-flex">
-      <v-app-bar app flat color="white">
+      <v-app-bar app flat color="#5c6e91">
         <v-toolbar-title class="grey--text text-uppercase mx-15">
-          <h1 class="mx-5 font-weight-black">Peken 4.0</h1>
+          <h1 class="mx-5 white--text">Peken 4.0</h1>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <!-- <p class="grey--text my-4">
@@ -17,7 +17,7 @@
     <v-container class="d-lg-none d-xl-flex">
       <v-app-bar app flat color="white">
         <v-app-bar-nav-icon
-          class="green--text"
+          color="#5c6e91"
           @click="drawer = true"
         ></v-app-bar-nav-icon>
         <v-toolbar-title class="grey--text text-uppercase">
@@ -27,7 +27,7 @@
       <!-- drawer -->
       <v-navigation-drawer v-model="drawer" fixed temporary>
         <v-list nav dense>
-          <v-list-item-group active-class="text--accent-4" color="#ED5575">
+          <v-list-item-group active-class="text--accent-4" color="#5c6e91">
             <v-list-item
               v-for="link in links"
               :key="link.text"
@@ -74,5 +74,6 @@ export default {
 <style scoped>
 .v-application h1 {
   font-size: 1.5em;
+  color: #eeeded !important;
 }
 </style>

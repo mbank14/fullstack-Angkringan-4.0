@@ -1,13 +1,5 @@
 <template>
   <div>
-<<<<<<< HEAD
-    <h1>ini detail transaksi</h1> 
-    <div v-for="kiki in detailTransaksion" :key="kiki.id">
-        <div v-for="koko in kiki" :key="koko.id">
-            {{ koko }}
-        </div>
-    </div>
-=======
     <h1>ini detail transaksi</h1>
     <!-- <div v-for="kiki in detailTransaksion" :key="kiki.id">
       <v-row>
@@ -43,7 +35,7 @@
           </tr>
         </thead>
         <tbody v-for="(item, index) in detailTransaksion" :key="item.id">
-          <tr v-for="(koo) in item.items" :key="koo.id">
+          <tr v-for="koo in item.items" :key="koo.id">
             <td>{{ index + 1 }}</td>
             <td>{{ koo.nama }}</td>
             <td>Rp. {{ koo.harga }}</td>
@@ -64,63 +56,11 @@
         </tbody>
       </template>
     </v-simple-table>
->>>>>>> fdc8dc2be40addeb3fbf3bfc486c77ed5c35b840
   </div>
 </template>
 
 <script>
 export default {
-<<<<<<< HEAD
-    data() {
-        return {
-            detailTransaksion: [
-                {
-                    id: "1231",
-                    items: [
-                        {
-                            id: "#31212",
-                            nama: "sarung",
-                            deskripsi: "sarung gajah duduk",
-                            harga: 1000,
-                            qyt:3,
-                            
-                        },
-                        {
-                            id: "#31212",
-                            nama: "sarung",
-                            deskripsi: "sarung gajah duduk",
-                            harga: 1000,
-                            qyt:3,
-                            
-                        },
-                        {
-                            id: "#31212",
-                            nama: "sarung",
-                            deskripsi: "sarung gajah duduk",
-                            harga: 1000,
-                            qyt:3,
-                            
-                        },
-                        {
-                            id: "#31212",
-                            nama: "sarung",
-                            deskripsi: "sarung gajah duduk",
-                            harga: 1000,
-                            qyt:3,
-                            
-                        },
-                    ]
-                },
-            ]
-        }
-    },
-}
-</script>
-
-<style>
-
-</style>
-=======
   data() {
     return {
       detailTransaksion: [
@@ -163,6 +103,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
->>>>>>> fdc8dc2be40addeb3fbf3bfc486c77ed5c35b840
+<style></style>

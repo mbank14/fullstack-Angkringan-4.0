@@ -2,7 +2,7 @@
   <div>
     <v-container class="fluid">
       <v-card app flat class="mx-auto my-12" max-width="544">
-        <v-card-title class="px-1 py-1 ">Tambah Menu</v-card-title>
+        <v-card-title class="px-1 py-1 ">Tambah Barang</v-card-title>
         <v-text-field
           v-model="tambah.kode"
           label="Kode"
@@ -42,7 +42,7 @@
           type="file"
           accept="image/*"
         />
-        <v-img :src="this.tambah.image"></v-img>
+        <v-img max-width="200px" :src="this.tambah.image"></v-img>
         <v-row>
           <v-col>
             <v-select
@@ -82,7 +82,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      api: "http://192.168.43.149:8000/",
+      api: "http://192.168.137.8:8000/",
       loading: false,
       dialog: false,
       // image: "",
