@@ -87,10 +87,7 @@ const routes = [
     component: () => 
       import(/* webpackChunkName: "produk" */ "../views/dasbor/Produk.vue")
   },
-<<<<<<< HEAD
-=======
  
->>>>>>> 43058587f92679306c4da6b865302eca33fd31d1
   {
     path: "/transaksion",
     name: "Transaksion",
