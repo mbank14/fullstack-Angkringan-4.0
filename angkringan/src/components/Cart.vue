@@ -61,7 +61,7 @@ export default {
     Breadcrumbs
   },
   computed: {
-    ...mapGetters(["card"]),
+    ...mapGetters(["getDataCart"]),
     jumlah() {
       return this.card.length;
     },

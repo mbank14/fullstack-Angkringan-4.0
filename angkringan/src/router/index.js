@@ -123,6 +123,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "transaksimasukdetail" */ "../components/transaksi/ComDetailTransaksi.vue")
   },
+  {
+    path: "/transaksiuser",
+    name: "TransaksiUser",
+    component: () =>
+      import(/* webpackChunkName: "transaksiuser" */ "../components/transaksi/user/ComTransaksi")
+  }
 ];
 
 const router = new VueRouter({
