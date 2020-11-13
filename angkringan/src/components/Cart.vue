@@ -1,6 +1,7 @@
 <template>
   <div>
     <Breadcrumbs />
+    {{ getDataCart }}
     <div v-for="it in card" :key="it.id">
       <v-card class="mx-auto" max-width="544" outlined>
         <v-list-item three-line>

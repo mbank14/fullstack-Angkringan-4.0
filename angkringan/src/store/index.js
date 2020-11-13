@@ -8,8 +8,7 @@ export default new Vuex.Store({
   state: {
     api: "http://localhost:3000/toko",
     data: [],
-    iniCart: [
-    ],
+    iniCart: [],
 
   },
 
@@ -26,8 +25,8 @@ export default new Vuex.Store({
       commit("detailsProduct");
     },
 
-    addItem(context, id) {
-      context.commit("ADD_Item", id);
+    addItem({commit}, item) {
+      commit("addItemCart", item);
     },
 
     removeItem(context, index) {
@@ -39,6 +38,14 @@ export default new Vuex.Store({
       const response = await Axios.get(state.api);
       state.data = response.data;
       console.log(response.data);
+    },
+    addItemCart(state, item) {
+      const addItems = state.iniCart.find(barang => barang.id === item.id);
+      if (addItems) {
+        addItems.qty++;
+      } else {
+        this.state.iniCart.push({ ...item, qty: 1 });
+      }
     },
     ADD_Item(state, id) {
       state.iniCart.push(id);

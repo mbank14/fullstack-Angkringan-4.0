@@ -40,6 +40,7 @@
           md="3"
           sm="6"
         >
+
           <v-card class="mx-auto my-12" max-width="374">
             <v-img
               :src="detail.image"
@@ -55,7 +56,7 @@
               <div>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
                 esse molestiae aperiam, perspiciatis asperiores dolorum omnis
-                repellat libero deserunt nihil.
+                repellat libero desersunt nihil.
               </div>
             </v-card-text>
             <v-divider class="mx-4"></v-divider>
@@ -70,6 +71,7 @@
                 class="white--text text-capitalize mb-4 "
                 color="#394867"
                 width="100%"
+                @click="addItem(detail)"
                 >Pesan</v-btn
               >
             </v-card-actions>
@@ -84,6 +86,7 @@
 import axios from "axios";
 import breadcrumbs from "../components/Breadcrumbs.vue";
 import Search from "@/components/Search";
+import { mapActions }  from "vuex";
 
 export default {
   data() {
@@ -100,6 +103,7 @@ export default {
   },
   computed: {},
   methods: {
+    ...mapActions(["addItem"]),
     async detailsProduct() {
       const response = await axios.get(
         `${this.api}products/${this.$route.params.id}/show_b`
