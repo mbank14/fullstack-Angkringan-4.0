@@ -3,6 +3,26 @@
     <breadcrumbs />
     <Search class="d-flex justify-end mb-2" />
     <v-container>
+      <v-row>
+        <v-img
+          :src="toko[0].gambar"
+          max-height="102"
+          max-width="116"
+          style="
+            width:120px;
+            height: 120px;
+          "
+        >
+
+        </v-img>
+        <v-col>
+          <h1>{{ toko[0].nama }}</h1>
+          <h4>{{ toko[0].alamat }}</h4>
+          <h6> {{ toko[0].telp}}</h6>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container>
       <!-- Cart Button -->
       <v-btn color="grey" large bottom right icon fab fixed to="/cart">
         <v-icon x-large>mdi-shopping-outline</v-icon>
@@ -68,8 +88,10 @@ import Search from "@/components/Search";
 export default {
   data() {
     return {
-      api: "http://192.168.137.8:8000/",
+      api: "http://192.168.137.204:8000/",
       barang: [],
+      toko: [],
+      items: [],
     };
   },
   components: {
@@ -85,9 +107,18 @@ export default {
       this.barang = response.data.data;
       console.log(this.barang);
     },
+    async getToko() {
+      const response = await axios.get(`${this.api}toko/${this.$route.params.id}/`);
+      this.toko = response.data.toko;
+      console.log(this.toko);
+    },
   },
   mounted() {
     this.detailsProduct();
+  },
+  created() {
+    this.getToko();
+
   },
 };
 </script>

@@ -18,7 +18,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
           </v-card-actions>
-          <router-link :to="`/details/${items.id}`">
+          <router-link :to="{ name: 'Detail', params: { id: items.id } }">
             <v-btn
               class="white--text text-capitalize text-btn"
               color="#394867"
@@ -41,7 +41,7 @@ export default {
   name: "Home",
   data() {
     return {
-      api: "http://192.168.137.8:8000/",
+      api: "http://192.168.137.204:8000/",
       toko: [],
     };
   },
