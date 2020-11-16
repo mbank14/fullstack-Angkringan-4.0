@@ -55,7 +55,10 @@ import Checkout from "@/components/Checkout";
 import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
-    return {};
+    return {
+      api: "http://192.168.1.15:8000/",
+      cart: []
+    };
   },
   components: {
     Checkout,

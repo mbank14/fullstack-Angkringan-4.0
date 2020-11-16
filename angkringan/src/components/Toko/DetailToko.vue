@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       toko: [],
-      api: "http://192.168.137.8:8000/",
+      api: "http://192.168.1.15:8000/",
     };
   },
 

@@ -122,7 +122,7 @@
           <v-checkbox v-model="checkbox" :rules="checkRules">
             <template v-slot:label>
               <div>
-                Semua data yang saya kirimkan adalah data yang sebenar benarnya
+                Semua data yang saya kirimkan adalah data yang sebenar benarnya.
               </div>
             </template>
           </v-checkbox>
@@ -166,7 +166,7 @@ export default {
   data() {
     return {
       loading: false,
-      api: "http://192.168.137.8:8000/",
+      api: "http://192.168.1.15:8000/",
       register: {
         user: {
           username: "",
