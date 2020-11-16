@@ -117,6 +117,18 @@ const routes = [
     name: "TransaksiUser",
     component: () =>
       import(/* webpackChunkName: "transaksiuser" */ "../components/transaksi/user/ComTransaksi")
+  },
+  {
+    path: "/cartcoba",
+    name: "CartCoba",
+    component: () =>
+      import(/* webpackChunkName: "cartcoba" */ "../views/user/CartShopping.vue")
+  },
+  {
+    path: "/cartcobas/:id",
+    name: "CartDetails",
+    component: () =>
+      import(/* webpackChunkName: "cartcoba/:id" */ "../views/user/DetailCartShopping.vue")
   }
 ];
 

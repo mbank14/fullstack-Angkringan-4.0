@@ -1,11 +1,17 @@
 <template>
   <div>
-      <h4>{{ cart }}</h4>
+     <v-row>
+         <v-col>
+             <v-card>
+                 {{ cart }}
+             </v-card>
+         </v-col>
+     </v-row>
   </div>
 </template>
 
 <script>
-import Axios from 'axios'
+import axios from 'axios'
 export default {
     data() {
         return {
@@ -15,10 +21,8 @@ export default {
     },
     methods: {
         async getDataCart() {
-          const response = await axios.get(
-              `${this.api}/sales/`
-          );
-          this.cart = this.response.data.data;
+          const response = await axios.get(`${this.api}sales/`);
+          this.cart = response.data.data;
           console.log(this.cart);
         },
     },
