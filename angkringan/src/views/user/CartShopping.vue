@@ -1,9 +1,27 @@
 <template>
   <div>
      <v-row>
-         <v-col>
+         <v-col v-for="c in cart" :key="c.id" 
+            cols="12">
+            <!-- <router-link :to="{ name: 'CartDetail', params: { id: c.id } }"> -->
              <v-card>
-                 {{ cart }}
+                <v-card-text>
+                    <h3>{{ c.id }}</h3>
+                    <h4>{{ c.date }}</h4>
+                </v-card-text>
+             </v-card>
+             <!-- </router-link> -->
+         </v-col>
+
+         <!-- ini coba yang baru  -->
+         <v-col v-for="dta in getDataCarts" :key="dta.id" cols="12">
+             <v-card>
+                 <h1>{{ dta.id }} </h1>
+                 <v-card-text>
+                     <div v-for="dt in dta.items" :key="dt.id">
+                         {{dt.nama}}
+                     </div>
+                 </v-card-text>
              </v-card>
          </v-col>
      </v-row>
@@ -11,6 +29,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import axios from 'axios'
 export default {
     data() {
@@ -28,6 +47,9 @@ export default {
     },
     mounted() {
         this.getDataCart();
+    },
+    computed: {
+        ...mapGetters(["getDataCarts"])
     },
 
 }

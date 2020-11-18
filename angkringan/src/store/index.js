@@ -8,14 +8,49 @@ export default new Vuex.Store({
   state: {
     api: "http://localhost:3000/toko",
     data: [],
-    iniCart: [],
+    iniCart: [
+      {
+        id: "313131",
+        items: [
+          {
+            id: "12121",
+            nama: "kooko"
+          },
+          {
+            id: "12121",
+            nama: "kooko"
+          },
+          {
+            id: "12121",
+            nama: "kooko"
+          },
+        ]
+      },
+      {
+        id: "313131",
+        items: [
+          {
+            id: "12121",
+            nama: "kooko"
+          },
+          {
+            id: "12121",
+            nama: "kooko"
+          },
+          {
+            id: "12121",
+            nama: "kooko"
+          },
+        ]
+      }
+    ],
 
   },
 
   getters: {
     allProducts: (state) => state.data,
     allDetailsProduct: (state) => state.details,
-    getDataCart: (state) => state.iniCart,
+    getDataCarts: (state) => state.iniCart,
   },
   actions: {
     getProduct({ commit }) {

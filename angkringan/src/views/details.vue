@@ -91,7 +91,7 @@ import { mapActions }  from "vuex";
 export default {
   data() {
     return {
-      api: "http://192.168.1.15:8000/",
+      api: "http://192.168.1.17:8000/",
       barang: [],
       toko: [],
       items: [],
