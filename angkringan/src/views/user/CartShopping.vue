@@ -1,18 +1,18 @@
 <template>
   <div>
      <v-row>
-         <v-col v-for="c in cart" :key="c.id" 
+         <!-- <v-col v-for="c in cart" :key="c.id" 
             cols="12">
-            <!-- <router-link :to="{ name: 'CartDetail', params: { id: c.id } }"> -->
+            <router-link :to="{ name: 'CartDetail', params: { id: c.id } }">
              <v-card>
                 <v-card-text>
                     <h3>{{ c.id }}</h3>
                     <h4>{{ c.date }}</h4>
                 </v-card-text>
              </v-card>
-             <!-- </router-link> -->
-         </v-col>
-
+             </router-link>
+         </v-col> -->
+        
          <!-- ini coba yang baru  -->
          <v-col v-for="dta in getDataCarts" :key="dta.id" cols="12">
              <v-card>
@@ -34,7 +34,7 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            api: "http://192.168.1.15:8000/",
+            api: "http://192.168.1.17:8000/",
             cart: []
         }
     },
@@ -46,7 +46,7 @@ export default {
         },
     },
     mounted() {
-        this.getDataCart();
+        this.getDataCarts();
     },
     computed: {
         ...mapGetters(["getDataCarts"])

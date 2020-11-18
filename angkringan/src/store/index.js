@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     api: "http://localhost:3000/toko",
     data: [],
-    iniCart: [
+    iniCart:[],
+    iniCarts: [
       {
         id: "313131",
         items: [
@@ -75,11 +76,13 @@ export default new Vuex.Store({
       console.log(response.data);
     },
     addItemCart(state, item) {
-      const addItems = state.iniCart.find(barang => barang.id === item.id);
+      const addItems = state.iniCart.find((barang) => barang.id === item.id);
       if (addItems) {
-        addItems.qty++;
+        addItems;
+        console.log(state.iniCart)
       } else {
-        this.state.iniCart.push({ ...item, qty: 1 });
+        this.state.iniCart.push({ ...item });
+        console.log(state.iniCart)
       }
     },
     ADD_Item(state, id) {

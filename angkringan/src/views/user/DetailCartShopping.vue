@@ -9,7 +9,7 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            api: "192.168.1.15:8000/",
+            api: "192.168.1.17:8000/",
             detailCart: []
         }
     },
